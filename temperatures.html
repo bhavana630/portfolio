@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="temperature.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Temperature Converter</h1>
+       
+        <div class="box">
+            <input type="number" id="celsius" placeholder="Celsius">
+            <button onclick="convertTemperature()">Convert</button>
+            <input type="text" id="fahrenheit" placeholder="Fahrenheit" readonly>
+        </div>
+        <div class="temperature-scale">
+            <p id="celsius-output">Celsius: </p>
+            <p id="fahrenheit-output">Fahrenheit: </p>
+        </div>
+    </div>
+
+    <h5>
+        <a href="projects.html">Project</a>
+        <a href="home.html">Home</a>
+        <a href="palindrome.html">palindrome</a>
+        <a href="about.html">About us</a>
+    </h5>
+
+    <script>
+        function convertTemperature() {
+            var celsiusInput = document.getElementById('celsius').value;
+            var celsius = parseFloat(celsiusInput);
+            
+            if (isNaN(celsius)) {
+                document.getElementById('fahrenheit').value = '';
+                document.getElementById('celsius-output').textContent = 'Celsius: ';
+                document.getElementById('fahrenheit-output').textContent = 'Fahrenheit: ';
+                return;
+            }
+            
+            var fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById('fahrenheit').value = fahrenheit.toFixed(1);
+            document.getElementById('celsius-output').textContent = `Celsius: ${celsius.toFixed(1)} °C`;
+            document.getElementById('fahrenheit-output').textContent = `Fahrenheit: ${fahrenheit.toFixed(1)} °F`;
+        }
+    </script>
+    
+</body>
+</html>
